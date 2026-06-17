@@ -1,0 +1,464 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2015 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[10pt,a4paper,sans]{moderncv}          % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+                                                     % moderncv themes
+\moderncvstyle{banking}                              % style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
+\moderncvcolor{black}                                % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
+%\renewcommand{\familydefault}{\sfdefault}           % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                                    % uncomment to suppress automatic page numbering for CVs longer than one page
+
+                                                     % character encoding
+%\usepackage[utf8]{inputenc}                         % if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                                % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% adjust the page margins
+\usepackage[scale=0.9, top=.75cm]{geometry}
+\usepackage{multicol}
+\usepackage{tabularx}
+%\setlength{\hintscolumnwidth}{3cm}                  % if you want to change the width of the column with the dates
+%\setlength{\makecvheadnamewidth}{10cm}              % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+\renewcommand*{\labelitemi}{-}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+
+\newcommand*{\experienceentry}[5][1.5mm]{
+    \subsection{#2} \vspace{-1.5mm}
+    \begin{tabularx}{\textwidth}{p{0.5\textwidth} C R}
+        {\textbf{#3}} & {\itshape #4} & {\itshape #5}
+    \end{tabularx}
+    \par\addvspace{#1}
+}
+
+\newcommand*{\educationentry}[4][0.5mm]{
+    \begin{tabularx}{\textwidth}{LR}
+        {\bfseries #3} & {\bfseries #4} \\
+    \end{tabularx}
+    {\itshape #2}
+    \par\addvspace{#1}
+}
+
+\newcommand*{\scoreentry}[3][2.5mm]{
+    {\bfseries #2} \\
+    {\itshape #3}
+    \par\addvspace{#1}
+}
+
+\usepackage[
+backend=biber,
+style=numeric,
+sorting=ymdt,
+isbn=false,
+url=false,
+doi=false,
+eprint=false,
+maxbibnames=99,
+defernumbers=true,
+]{biblatex}
+
+\DeclareSortingTemplate{ymdt}{
+  \sort{
+    \field{presort}
+  }
+  \sort[direction=descending]{
+    \field{sortyear}
+    \field{year}
+  }
+  \sort[direction=descending]{
+    \field[padside=left,padwidth=2,padchar=0]{month}
+  }
+  \sort{
+    \field{sortname}
+    \field{author}
+    \field{sorttitle}
+    \field{title}
+  }
+}
+
+
+% \addbibresource{paper.bib}
+\newcommand{\makeauthorbold}[1]{%
+  \DeclareNameFormat{author}{%
+    \ifthenelse{\value{listcount}=1}
+    {%
+      {\expandafter\ifstrequal\expandafter{\namepartfamily}{#1}{\mkbibbold{\namepartfamily\addcomma\addspace \namepartgiveni}}{\namepartfamily\addcomma\addspace \namepartgiveni}}
+      %
+    }{\ifnumless{\value{listcount}}{\value{liststop}}
+        {\expandafter\ifstrequal\expandafter{\namepartfamily}{#1}{\mkbibbold{\addcomma\addspace \namepartfamily\addcomma\addspace \namepartgiveni}}{\addcomma\addspace \namepartfamily\addcomma\addspace \namepartgiveni}}
+        {\expandafter\ifstrequal\expandafter{\namepartfamily}{#1}{\mkbibbold{\addcomma\addspace \namepartfamily\addcomma\addspace \namepartgiveni\addcomma\isdot}}{\addcomma\addspace \namepartfamily\addcomma\addspace \namepartgiveni\addcomma\isdot}}%
+      }
+    \ifthenelse{\value{listcount}<\value{liststop}}
+    {\addcomma\space}{}
+  }
+}
+\makeauthorbold{Chen}
+
+\addbibresource{journal.bib}
+\addbibresource{paper.bib}
+\addbibresource{poster.bib}
+
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map[overwrite]{
+      \perdatasource{journal.bib}
+      \step[fieldset=keywords, fieldvalue={,journal}, append]
+    }
+  }
+}
+
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map[overwrite]{
+      \perdatasource{paper.bib}
+      \step[fieldset=keywords, fieldvalue={,paper}, append]
+    }
+  }
+}
+
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map[overwrite]{
+      \perdatasource{poster.bib}
+      \step[fieldset=keywords, fieldvalue={,poster}, append]
+    }
+  }
+}
+
+% personal data
+\name{Chen-Chun}{Chen}
+% \title{Resumé title}                                 % optional, remove / comment the line if not wanted
+% \address{street and number}{postcode city}{country}% optional, remove / comment the line if not wanted; the "postcode city" and "country" arguments can be omitted or provided empty
+\phone[mobile]{+1~(614)~822~9763}                    % optional, remove / comment the line if not wanted; the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
+% \phone[fixed]{+2~(345)~678~901}
+% \phone[fax]{+3~(456)~789~012}
+\email{brucechen057@gmail.com}                           % optional, remove / comment the line if not wanted
+% \homepage{www.johndoe.com}                         % optional, remove / comment the line if not wanted
+\social[linkedin]{chen-chun-chen}                         % optional, remove / comment the line if not wanted
+% \social[twitter]{jdoe}                             % optional, remove / comment the line if not wanted
+% \social[github]{jdoe}                              % optional, remove / comment the line if not wanted
+% \extrainfo{additional information}                 % optional, remove / comment the line if not wanted
+% \photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+% \quote{Some quote}                                 % optional, remove / comment the line if not wanted
+
+% bibliography adjustements (only useful if you make citations in your resume, or print a list of publications using BibTeX)
+%   to show numerical labels in the bibliography (default is to show no labels)
+% \makeatletter\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}\makeatother
+%   to redefine the bibliography heading string ("Publications")
+%\renewcommand{\refname}{Articles}
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+\vspace*{-10mm}
+
+% \begin{multicols}{2}
+% \setlength{\textwidth}{\linewidth}
+% \recomputecvbodylengths
+% \begin{vwcol}[widths={0.6,0.4},
+% sep=.8cm, justify=flush,rule=0pt,indent=1em]
+\begin{minipage}[t]{0.64\textwidth}
+
+% \section{Master thesis}
+% \cvitem{title}{\emph{Title}}
+% \cvitem{supervisors}{Supervisors}
+% \cvitem{description}{Short thesis abstract}
+
+\section{Education}
+\educationentry{PhD, Computer Science and Engineering}{The Ohio State University}{
+2020--Present
+}{
+  \begin{itemize}
+  \item Advisor: Dhabaleswar K. Panda
+  \item Dissertation: Designing GPU-Aware Collective Communication for Heterogeneous Clusters with Diverse GPUs and Interconnects
+  \end{itemize}
+}
+\educationentry{MS, Computer Science}{National Tsing Hua University}{
+2016--2018
+}{
+\begin{itemize}
+  \item Advisor: Jerry Chou
+  \item Thesis: ALBERT: an Automatic Learning Based Execution and Resource Management System for Hadoop
+  \end{itemize}
+}
+\educationentry{BS, Computer Science}{National Tsing Hua University}{
+2012--2016
+}{
+}  % arguments 3 to 6 can be left empty
+
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.32\textwidth}
+
+\section{Summary}
+% I am a computing researcher interested in high-performance heterogeneous computing. 
+% My industry experience has enabled me to design and implement complex projects over both short and long periods, while my research experience has taught me valuable methodologies for developing theories and experimentation. 
+% I love providing high-performance solutions and reducing development overhead. I am not afraid to build something from the ground up.
+
+PhD candidate in Computer Science and Engineering specializing in designing, implementing, and optimizing GPU-aware MPI libraries and scalable collective algorithms for heterogeneous HPC systems. Experienced with NVIDIA, AMD, and Intel GPUs, with 20+ peer-reviewed publications contributing to MVAPICH. Skilled in bridging low-level communication and middleware to build portable, efficient, and high-performance solutions for large-scale scientific computing and AI applications.
+
+
+% \section{Skills}
+% \begin{itemize}%
+% \item High-performance Computing
+% \item High-performance Deep Learning
+% \item System Design
+% \item Object Oriented Programming
+% \item Academic Writing and Review
+% \item Technical Presentation
+% \item Build Scripting
+% \end{itemize}
+
+% \section{Languages}
+% \begin{multicols}{2}
+% \begin{itemize}%
+% \item C/C++
+% \item Bash
+% \item Python
+% \item Java
+% \item JavaScript
+% \item Perl
+% \end{itemize}
+% \end{multicols}
+
+% \section{Libraries/Frameworks}
+% \begin{multicols}{2}
+% \begin{itemize}%
+% \item MPI
+% \item CUDA
+% \item SYCL/Level Zero
+% \item OpenMP
+% \item ROCm/HIP
+% \item matplotlib
+% \end{itemize}
+% \end{multicols}
+
+
+% \end{multicols}
+% \end{vwcol}
+\end{minipage}
+
+\vspace*{-1mm}
+\section{Work Experience}
+\experienceentry{The Ohio State University (The Network-Based Computing Laboratory)}{Graduate Research Associate}{Columbus, OH}{Aug 2020--Present}{
+
+\begin{itemize}%
+\item Contribute to the MVAPICH project, focusing on GPU-aware MPI runtimes and performance optimization.
+\item Design and implement scalable collective communication algorithms (Allreduce, Alltoall).
+\item Collaborate with research institutions to evaluate designs on leading supercomputers.
+\item Publish and present research on HPC communication runtimes.
+\end{itemize}}
+\experienceentry{X-ScaleSolutions, LLC}{Software Engineer Intern}{Columbus, OH}{May 2022--Aug 2022}{
+\begin{itemize}%
+\item Ran and profiled PETSc workloads on CPU and GPU systems.
+\item Identified performance bottlenecks and optimized execution efficiency.
+\end{itemize}}
+\experienceentry{Taiwan Semiconductor Manufacturing Company (TSMC)}{Engineer}{Hsinchu, Taiwan}{Sep 2018--Jul 2019}{
+\begin{itemize}%
+\item Designed and maintained automation scripts and programs for production line operations.
+\item Automated production line operations with scripts and deployment tools, improving workflow efficiency by 20\%.
+\item Built and deployed a cluster health-checking system, detected and prevented at least 3 anomalies in 2 months.
+\item Conducted research using deep learning to predict production yield based on transistor density.
+\end{itemize}}
+\experienceentry{Taiwan Semiconductor Manufacturing Company (TSMC)}{Intern Engineer}{Hsinchu, Taiwan}{Jul 2017--Aug 2017}{
+\begin{itemize}%
+\item Applied deep learning to predict job execution times in live production environments.
+\item Designed job scheduling and optimization strategies to improve throughput with minimal overhead.
+\end{itemize}}
+\experienceentry{The Ohio State University, National Tsing Hua University}{Graduate Teaching Associate }{}{}{
+\begin{itemize}%
+\item OSU: Algorithm (AU 2020)
+\item NTHU: Cloud Programming (SP 2017, SP 2018), 
+            Parallel Programming (AU 2016, AU 2017), 
+            Machine Learning (AU 2017)
+\end{itemize}}
+
+% \vfil
+% \columnbreak
+
+\vspace*{-3mm}
+\section{Current Projects}
+
+\subsection{GPU-Aware MPI~\cite{isc26-rsa, ipdps26-casting, icpp25-allreduce, ipdps25-kernel, hipc24-intelgpu, pearc24-intelgpu, ipdrm23-xccl, ccgrid23-intelgpu, hcw22-alltoall}}
+\begin{itemize}
+    \item Extended MVAPICH to support GPU-aware communication.
+    \item \textbf{IPC-based Alltoall Algorithm}: Designed hybrid Alltoall algorithms leveraging GPU zero-copy IPC, boosting heFFTe throughput by up to 28× on 128 GPUs compared to MVAPICH2-GDR.
+    \item \textbf{Kernel-based Direct Allreduce Algorithm}: Achieved up to 23\% lower latency than NCCL on large-scale systems and 40\% faster performance than existing MPI libraries, resulting in 27\% faster Amber simulations.
+    \item \textbf{Intel GPU Support}: Developed GPU-aware MPI runtimes for point-to-point and collective operations, achieving 11× faster Allreduce on a single node, 42\% improvement on 32 GPUs, and up to 20× higher Alltoallv throughput over MPICH.
+    \item \textbf{Multi-rail-aware Allreduce Designs}: Delivered 2.8–2.9× speedup at 1 GB over Cray MPICH and Intel MPI by leveraging persistent GPU buffers, multi-leader communication, and pipelined designs across NVIDIA, AMD, and Intel GPUs.
+    \item \textbf{Compression Framework for MPI Collectives}: Integrated casting-based compression into MPI collectives, reducing Allreduce latency by 42\% over MVAPICH-Plus + ZFP and Alltoall latency by 59\%.
+    \item \textbf{MPI-xCCL}: Developed a portable MPI layer over vendor collective libraries (NCCL, RCCL, HCCL, MSCCL), enabling cross-accelerator portability with competitive performance without code changes.
+\end{itemize}
+
+\section{Past Projects}
+
+\subsection{Hybrid Compression Optimization for Distributed Training~\cite{CHEN2023104719}}
+\begin{itemize}
+    \item Designed a performance-driven hybrid compression framework to accelerate distributed TensorFlow training with Horovod.
+\end{itemize}
+
+\subsection{ALBERT: Automatic Learning-Based Execution and Resource Management for Hadoop~\cite{CHEN202245}}
+\begin{itemize}
+    \item Integrated research results from the following 2 programs and extended them to a cloud platform using OpenStack Sahara.
+    \item Applied machine learning, particularly deep learning, to predict Hadoop job running times in cloud environments.
+    \item Designed an execution optimization mechanism that improved system throughput using a modified 2D bin-packing algorithm guided by time prediction results.
+\end{itemize}
+
+\subsection{Job Prediction on Big-data platforms (with Institute for Information Industry (III), Taiwan)~\cite{datacom17-prediction}}
+\begin{itemize}
+    \item Developed machine learning models to predict job running times on Hadoop and Spark platforms.
+    \item Integrated existing modules in III to implement an automatic resource reallocate mechanism driven by prediction results.
+\end{itemize}
+
+\subsection{Job Prediction and Resource Management on Production Line (with TSMC, Taiwan)}
+\begin{itemize}
+    \item Utilized deep learning techniques to forecast job execution times in real semiconductor production environments.
+    \item Designed optimization strategies that improved total system throughput by leveraging prediction results without introducing additional overhead.
+\end{itemize}
+
+\subsection{Student Cluster Competition (SCC) in HPC}
+\begin{itemize}
+    \item Competed in SC15 (2nd place overall), TSCC (Champion), and ASC16 (First Class Award).
+    \item Tuned performance for HPC apps (WRF, LAMMPS) and ported neural networks to Intel Xeon Phi.
+\end{itemize}
+
+\section{Languages}
+\begin{multicols}{6}
+\begin{itemize}%
+\item C/C++
+\item Bash
+\item Python
+\item Java
+\item JavaScript
+\item Perl
+\end{itemize}
+\end{multicols}
+
+\section{Libraries/Frameworks}
+\begin{multicols}{6}
+\begin{itemize}%
+\item MPI
+\item OpenMP
+\item ROCm/HIP
+\item CUDA
+\item oneAPI/SYCL
+\item Level Zero
+\end{itemize}
+\end{multicols}
+
+% \nocite{*}
+% \bibliographystyle{unsrtdin}
+% \bibliography{publications}                        % 'publications' is the name of a BibTeX file
+
+\nocite{*}
+\printbibliography[keyword={journal}, title=Journals, resetnumbers=true]
+\printbibliography[keyword={paper}, title=Conferences and Workshops, resetnumbers=false]
+\printbibliography[keyword={poster}, title=Posters, resetnumbers=false]
+
+% \section{Skills}
+% \begin{itemize}%
+% \item High-performance Computing
+% \item High-performance Deep Learning
+% \item System Design
+% \item Object Oriented Programming
+% \item Academic Writing and Review
+% \item Technical Presentation
+% \item Build Scripting
+% \end{itemize}
+
+
+
+
+% \section{Activities}
+% \cvlistitem{Assisted in reviewing submissions for the following journals and conferences:}
+% \begin{multicols}{4}
+% \begin{itemize}
+% \item CCGRID ‘23
+% \item CLUSTER ‘24
+% \item ICS ‘23
+% \item EuroMPI ‘23
+% \end{itemize}
+% \begin{itemize}
+% \columnbreak
+% \item ExaMPI ‘22, ‘23, '24
+% \item ICDCS ‘23
+% \item ICPP ‘24
+% \item IPDPS ‘21, ‘22, ‘24
+% \end{itemize}
+% \columnbreak
+% \begin{itemize}
+% \item SC ‘22, ‘23
+% \item IEEE Transactions on Computers ‘23, ‘24
+% \end{itemize}
+% \columnbreak
+% \end{multicols}
+% \cvlistitem{Participated in planning and organization of MVAPICH User Group (MUG) Conference ‘20, ‘21, ‘22, ‘23, ‘24, '25}
+% \cvlistitem{Attended “Teaching-Oriented Academic Careers” CRA-E Workshop at FRCR ‘23}
+% \cvlistitem{SC '24 and PEARC '24 Student Programs}
+
+% \section{Select Graduate Coursework}
+% \begin{itemize}
+%     \begin{multicols}{2}
+%         \item Advanced Hardware Design (in-progress)
+%         \item Domain-Specific Computing (in-progress)
+%         \item Compiler Design and Optimization
+%         \item Rustworthy Computing
+%         \columnbreak
+%         \item Advanced Computer Architecture
+%         \item Programming Languages
+%         \item Advanced Operating Systems
+%         \item Advanced Parallel Computing
+%     \end{multicols}
+% \end{itemize}
+
+% Publications from a BibTeX file using the multibib package
+% \section{Publications}
+% \nocitebook{book1,book2}
+% \bibliographystylebook{plain}
+% \bibliographybook{publications}                   % 'publications' is the name of a BibTeX file
+% \nocitemisc{misc1,misc2,misc3}
+% \bibliographystylemisc{plain}
+% \bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
+
+% \clearpage
+% %-----       letter       ---------------------------------------------------------
+% % recipient data
+% \recipient{Company Recruitment team}{Company, Inc.\\123 somestreet\\some city}
+% \date{January 01, 1984}
+% \opening{Dear Sir or Madam,}
+% \closing{Yours faithfully,}
+% \enclosure[Attached]{curriculum vit\ae{}}          % use an optional argument to use a string other than "Enclosure", or redefine \enclname
+% \makelettertitle
+
+% Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ullamcorper neque sit amet lectus facilisis sed luctus nisl iaculis. Vivamus at neque arcu, sed tempor quam. Curabitur pharetra tincidunt tincidunt. Morbi volutpat feugiat mauris, quis tempor neque vehicula volutpat. Duis tristique justo vel massa fermentum accumsan. Mauris ante elit, feugiat vestibulum tempor eget, eleifend ac ipsum. Donec scelerisque lobortis ipsum eu vestibulum. Pellentesque vel massa at felis accumsan rhoncus.
+
+% Suspendisse commodo, massa eu congue tincidunt, elit mauris pellentesque orci, cursus tempor odio nisl euismod augue. Aliquam adipiscing nibh ut odio sodales et pulvinar tortor laoreet. Mauris a accumsan ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate sem vehicula ipsum varius nec tempus dui dapibus. Phasellus et est urna, ut auctor erat. Sed tincidunt odio id odio aliquam mattis. Donec sapien nulla, feugiat eget adipiscing sit amet, lacinia ut dolor. Phasellus tincidunt, leo a fringilla consectetur, felis diam aliquam urna, vitae aliquet lectus orci nec velit. Vivamus dapibus varius blandit.
+
+% Duis sit amet magna ante, at sodales diam. Aenean consectetur porta risus et sagittis. Ut interdum, enim varius pellentesque tincidunt, magna libero sodales tortor, ut fermentum nunc metus a ante. Vivamus odio leo, tincidunt eu luctus ut, sollicitudin sit amet metus. Nunc sed orci lectus. Ut sodales magna sed velit volutpat sit amet pulvinar diam venenatis.
+
+% Albert Einstein discovered that $e=mc^2$ in 1905.
+
+% \[ e=\lim_{n \to \infty} \left(1+\frac{1}{n}\right)^n \]
+
+% \makeletterclosing
+
+% \clearpage\end{CJK*}                              % if you are typesetting your resume in Chinese using CJK; the \clearpage is required for fancyhdr to work correctly with CJK, though it kills the page numbering by making \lastpage undefined
+\end{document}
+
+
+%% end of file `template.tex'.

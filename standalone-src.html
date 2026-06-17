@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="ext-resource-dependency" content="uploads/Resume/journal.bib" data-resource-id="journalBib" />
+<meta name="ext-resource-dependency" content="uploads/Resume/paper.bib" data-resource-id="paperBib" />
+<meta name="ext-resource-dependency" content="uploads/Resume/poster.bib" data-resource-id="posterBib" />
+<meta name="ext-resource-dependency" content="assets/Chen-Chun-Chen-CV.pdf" data-resource-id="cvPdf" />
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/chen-chun-chen-design-system-21873a11-4449-49e4-baae-53e4d1fb2195/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/chen-chun-chen-design-system-21873a11-4449-49e4-baae-53e4d1fb2195/tokens/colors.css">
+<link rel="stylesheet" href="_ds/chen-chun-chen-design-system-21873a11-4449-49e4-baae-53e4d1fb2195/tokens/typography.css">
+<link rel="stylesheet" href="_ds/chen-chun-chen-design-system-21873a11-4449-49e4-baae-53e4d1fb2195/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/chen-chun-chen-design-system-21873a11-4449-49e4-baae-53e4d1fb2195/tokens/base.css">
+<link rel="stylesheet" href="_ds/chen-chun-chen-design-system-21873a11-4449-49e4-baae-53e4d1fb2195/styles.css">
+<script src="_ds/chen-chun-chen-design-system-21873a11-4449-49e4-baae-53e4d1fb2195/_ds_bundle.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+  body { margin: 0; }
+  @keyframes ccRise { from { transform: translateY(112%); } to { transform: translateY(0); } }
+  @keyframes ccBar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  @keyframes ccFade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  .cc-navlink { position: relative; }
+  .cc-navlink::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -4px; height: 1px; background: currentColor; transition: right .3s cubic-bezier(0.16,1,0.3,1); }
+  .cc-navlink:hover::after { right: 0; }
+  .print-only { display: none; }
+  @media print {
+    html { scroll-behavior: auto; }
+    .no-print, .cc-nav, .screen-hero { display: none !important; }
+    .print-only { display: block !important; }
+    .cc-section { padding: 18px 0 !important; break-inside: avoid; }
+    a { text-decoration: none !important; color: #000 !important; }
+    body, #cc-top { background: #fff !important; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [style*="ccRise"], [style*="ccBar"], [style*="ccFade"] { animation: none !important; }
+  }
+</style>
+</helmet>
+
+<div id="cc-top" style="background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); min-height: 100vh; -webkit-font-smoothing: antialiased;">
+
+  <header class="cc-nav" style="position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 16px 32px; background: color-mix(in srgb, var(--color-bg) 84%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--color-border);">
+    <a href="#cc-top" style="display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border: 1.5px solid var(--color-text); font-family: var(--font-mono); font-weight: 700; font-size: 14px; letter-spacing: 0.04em; color: var(--color-text); text-decoration: none;">CC</a>
+    <nav style="display: flex; gap: 28px; align-items: center;">
+      <a class="cc-navlink" href="#about" style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-text-secondary); text-decoration: none;" style-hover="color: var(--color-text);">About</a>
+      <a class="cc-navlink" href="#cv" style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-text-secondary); text-decoration: none;" style-hover="color: var(--color-text);">CV</a>
+      <a class="cc-navlink" href="#publications" style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-text-secondary); text-decoration: none;" style-hover="color: var(--color-text);">Publications</a>
+      <a class="cc-navlink" href="#contact" style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-text-secondary); text-decoration: none;" style-hover="color: var(--color-text);">Contact</a>
+      <button onClick="{{ toggleTheme }}" aria-label="Toggle theme" style="margin-left: 4px; cursor: pointer; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-text); background: transparent; border: 1px solid var(--color-border); padding: 7px 12px; border-radius: var(--radius-pill);" style-hover="background: var(--color-hover-wash);">{{ themeLabel }}</button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============ HERO — SPLIT ============ -->
+    <section class="screen-hero" style="border-bottom: 1px solid var(--color-border);">
+      <div style="max-width: var(--container); margin: 0 auto; padding: 80px 32px; width: 100%; display: grid; grid-template-columns: 1.35fr 0.85fr; gap: 56px; align-items: center;">
+        <div>
+          <div style="font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-text-muted); animation: ccFade .6s var(--ease-out) both;">High-Performance Computing</div>
+          <h1 style="margin: 22px 0 0; font-family: var(--font-display); font-weight: 800; font-size: clamp(46px, 6.4vw, 92px); line-height: 0.92; letter-spacing: var(--tracking-display); text-transform: uppercase; color: var(--color-text);">
+            <span style="display: block; overflow: hidden;"><span style="display: block; animation: ccRise .72s var(--ease-out) both; animation-delay: .04s;">Chen-Chun</span></span>
+            <span style="display: block; overflow: hidden;"><span style="display: block; animation: ccRise .72s var(--ease-out) both; animation-delay: .12s;">Chen</span></span>
+          </h1>
+          <div style="height: 12px; width: 220px; background: var(--color-text); margin: 30px 0 0; transform-origin: left; animation: ccBar .6s var(--ease-out) both; animation-delay: .28s;"></div>
+          <p style="margin: 30px 0 0; max-width: 48ch; font-size: var(--text-md); line-height: 1.55; color: var(--color-text-secondary);">I design, implement, and optimize GPU-aware MPI runtimes and scalable collective algorithms for heterogeneous HPC systems — bridging low-level communication and middleware to make large-scale science and AI run faster.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-top: 36px;">
+            <x-import component-from-global-scope="ChenChunChenDesignSystem_21873a.Button" variant="primary" size="lg" as="a" href="#cv" hint-size="auto,52px">View CV</x-import>
+            <x-import component-from-global-scope="ChenChunChenDesignSystem_21873a.Button" variant="secondary" size="lg" as="a" href="{{ cvPdf }}" target="_blank" download="Chen-Chun-Chen-CV.pdf" hint-size="auto,52px">Download CV</x-import>
+            <x-import component-from-global-scope="ChenChunChenDesignSystem_21873a.TextLink" href="{{ links.scholar }}" variant="arrow" target="_blank" rel="noopener" hint-size="auto,24px">Google Scholar</x-import>
+          </div>
+        </div>
+        <div>
+          <div style="aspect-ratio: 4/5; border: 1px solid var(--color-border); background: var(--color-surface-sunken); overflow: hidden;">
+            <img src="assets/headshot.jpg" alt="Chen-Chun Chen" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+          <div style="margin-top: 18px; border-top: 1.5px solid var(--color-border-strong); padding-top: 16px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.7;">
+            <div style="color: var(--color-text);">PhD Candidate</div>
+            <div style="color: var(--color-text); margin-top: 6px;">Network-Based Computing Laboratory</div>
+            <div style="color: var(--color-text);">Computer Science &amp; Engineering</div>
+            <div style="color: var(--color-text);">The Ohio State University</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="cc-section" style="max-width: var(--container); margin: 0 auto; padding: 96px 32px;">
+      <x-import component-from-global-scope="ChenChunChenDesignSystem_21873a.SectionLabel" index="01" rule="{{ true }}" hint-size="100%,28px">About</x-import>
+      <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 56px; margin-top: 40px;">
+        <div>
+          <p style="margin: 0; font-size: var(--text-xl); line-height: 1.4; letter-spacing: -0.01em; color: var(--color-text); text-wrap: pretty;">PhD candidate in Computer Science and Engineering specializing in designing, implementing, and optimizing GPU-aware MPI libraries and scalable collective algorithms for heterogeneous HPC systems.</p>
+          <p style="margin: 24px 0 0; font-size: var(--text-md); line-height: 1.6; color: var(--color-text-secondary); max-width: var(--measure);">Experienced with NVIDIA, AMD, and Intel GPUs, with 20+ peer-reviewed publications contributing to MVAPICH. Skilled in bridging low-level communication and middleware to build portable, efficient, and high-performance solutions for large-scale scientific computing and AI applications.</p>
+        </div>
+        <div style="border-top: 1.5px solid var(--color-border-strong); padding-top: 20px;">
+          <div style="display: grid; gap: 14px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-muted);">
+            <div style="display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--color-border); padding-bottom: 12px;"><span>Based in</span><span style="color: var(--color-text);">Columbus, OH</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--color-border); padding-bottom: 12px;"><span>Lab</span><span style="color: var(--color-text);">Network-Based Computing</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--color-border); padding-bottom: 12px;"><span>Current Project</span><span style="color: var(--color-text);">MVAPICH</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 12px;"><span>Interests</span><span style="color: var(--color-text);">HPC · MPI · GPU</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CV ============ -->
+    <section id="cv" class="cc-section" style="border-top: 1px solid var(--color-border); background: var(--color-surface-sunken);">
+      <div style="max-width: var(--container); margin: 0 auto; padding: 96px 32px;">
+        <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 280px;">
+            <x-import component-from-global-scope="ChenChunChenDesignSystem_21873a.SectionLabel" index="02" rule="{{ true }}" hint-size="100%,28px">Curriculum Vitae</x-import>
+          </div>
+          <span class="no-print">
+            <x-import component-from-global-scope="ChenChunChenDesignSystem_21873a.Button" variant="secondary" size="md" as="a" href="{{ cvPdf }}" target="_blank" download="Chen-Chun-Chen-CV.pdf" hint-size="auto,44px">Download PDF</x-import>
+          </span>
+        </div>
+
+        <!-- Education -->
+        <h3 style="margin: 56px 0 0; font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-text-muted);">Education</h3>
+        <sc-for list="{{ education }}" as="ed" hint-placeholder-count="3">
+          <div style="display: grid; grid-template-columns: 160px 1fr; gap: 28px; padding: 24px 0; border-top: 1px solid var(--color-border); margin-top: 18px;">
+            <div style="font-family: var(--font-mono); font-size: 13px; color: var(--color-text-muted); padding-top: 4px;">{{ ed.period }}</div>
+            <div>
+              <div style="font-size: var(--text-lg); font-weight: 700; letter-spacing: -0.01em; color: var(--color-text);">{{ ed.degree }}</div>
+              <div style="margin-top: 3px; font-size: var(--text-base); color: var(--color-text-secondary);">{{ ed.school }}</div>
+              <sc-for list="{{ ed.notes }}" as="note" hint-placeholder-count="0">
+                <div style="margin-top: 9px; font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.5;">{{ note }}</div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+
+        <!-- Experience -->
+        <h3 style="margin: 64px 0 0; font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-text-muted);">Experience</h3>
+        <sc-for list="{{ experience }}" as="job" hint-placeholder-count="4">
+          <div style="display: grid; grid-template-columns: 160px 1fr; gap: 28px; padding: 26px 0; border-top: 1px solid var(--color-border); margin-top: 18px;">
+            <div style="font-family: var(--font-mono); font-size: 13px; color: var(--color-text-muted); padding-top: 4px;">{{ job.period }}</div>
+            <div>
+              <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 16px;">
+                <span style="font-size: var(--text-lg); font-weight: 700; letter-spacing: -0.01em; color: var(--color-text);">{{ job.role }}</span>
+                <span style="font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-faint);">{{ job.location }}</span>
+              </div>
+              <div style="margin-top: 3px; font-size: var(--text-base); font-style: italic; color: var(--color-text-secondary);">{{ job.org }}</div>
+              <sc-if value="{{ job.hasBullets }}" hint-placeholder-val="{{ true }}">
+                <ul style="margin: 12px 0 0; padding: 0; list-style: none; display: grid; gap: 7px;">
+                  <sc-for list="{{ job.bullets }}" as="b" hint-placeholder-count="2">
+                    <li style="position: relative; padding-left: 18px; font-size: var(--text-sm); line-height: 1.55; color: var(--color-text-secondary);"><span style="position: absolute; left: 0; color: var(--color-text-faint);">—</span>{{ b }}</li>
+                  </sc-for>
+                </ul>
+              </sc-if>
+            </div>
+          </div>
+        </sc-for>
+
+        <!-- Projects -->
+        <h3 style="margin: 64px 0 0; font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-text-muted);">Selected Projects</h3>
+        <sc-for list="{{ projects }}" as="proj" hint-placeholder-count="3">
+          <div style="display: grid; grid-template-columns: 160px 1fr; gap: 28px; padding: 26px 0; border-top: 1px solid var(--color-border); margin-top: 18px;">
+            <div style="font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-muted); padding-top: 5px;">{{ proj.tag }}</div>
+            <div>
+              <div style="font-size: var(--text-lg); font-weight: 700; letter-spacing: -0.01em; color: var(--color-text); text-wrap: pretty;">{{ proj.title }}</div>
+              <sc-if value="{{ proj.hasBullets }}" hint-placeholder-val="{{ true }}">
+                <ul style="margin: 12px 0 0; padding: 0; list-style: none; display: grid; gap: 8px;">
+                  <sc-for list="{{ proj.bullets }}" as="b" hint-placeholder-count="2">
+                    <li style="position: relative; padding-left: 18px; font-size: var(--text-sm); line-height: 1.55; color: var(--color-text-secondary);"><span style="position: absolute; left: 0; color: var(--color-text-faint);">—</span><strong style="color: var(--color-text); font-weight: 600;">{{ b.lead }}</strong>{{ b.text }}</li>
+                  </sc-for>
+                </ul>
+              </sc-if>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- ============ PUBLICATIONS ============ -->
+    <section id="publications" class="cc-section" style="border-top: 1px solid var(--color-border);">
+      <div style="max-width: var(--container); margin: 0 auto; padding: 96px 32px;">
+        <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 280px;">
+            <x-import component-from-global-scope="ChenChunChenDesignSystem_21873a.SectionLabel" index="03" rule="{{ true }}" hint-size="100%,28px">Publications</x-import>
+          </div>
+          <x-import component-from-global-scope="ChenChunChenDesignSystem_21873a.TextLink" href="{{ links.scholar }}" variant="arrow" target="_blank" rel="noopener" hint-size="auto,24px">All on Google Scholar</x-import>
+        </div>
+        <sc-if value="{{ loading }}" hint-placeholder-val="{{ true }}">
+          <div style="margin-top: 40px; font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-muted);">Loading publications…</div>
+        </sc-if>
+
+        <!-- Tabs -->
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 40px;">
+          <sc-for list="{{ pubTabs }}" as="tab" hint-placeholder-count="3">
+            <button onClick="{{ tab.onClick }}" style="cursor: pointer; display: inline-flex; align-items: baseline; gap: 9px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; padding: 11px 18px; border-radius: var(--radius-pill); border: 1px solid {{ tab.border }}; background: {{ tab.bg }}; color: {{ tab.fg }}; transition: all .18s var(--ease-out);">{{ tab.label }}<span style="font-size: 11px; opacity: 0.7;">{{ tab.count }}</span></button>
+          </sc-for>
+        </div>
+
+        <!-- Active group list -->
+        <div style="margin-top: 8px;">
+          <sc-if value="{{ activePub.empty }}" hint-placeholder-val=""><div style="margin-top: 32px; font-family: var(--font-mono); font-size: 12px; color: var(--color-text-muted);">No entries found.</div></sc-if>
+          <sc-for list="{{ activePub.items }}" as="pub" hint-placeholder-count="4">
+            <div style="display: grid; grid-template-columns: 44px 1fr auto; gap: 22px; padding: 22px 0; border-top: 1px solid var(--color-border); align-items: baseline;">
+              <div style="font-family: var(--font-mono); font-size: 13px; color: var(--color-text-faint);">{{ pub.num }}</div>
+              <div>
+                <div style="font-size: var(--text-md); font-weight: 600; line-height: 1.32; letter-spacing: -0.01em; color: var(--color-text); text-wrap: pretty;">{{ pub.title }}</div>
+                <div style="margin-top: 8px; font-size: var(--text-sm); line-height: 1.5; color: var(--color-text-secondary);"><span>{{ pub.authBefore }}</span><strong style="color: var(--color-text); font-weight: 700;">{{ pub.authMe }}</strong><span>{{ pub.authAfter }}</span></div>
+                <div style="margin-top: 6px; font-style: italic; font-size: var(--text-sm); color: var(--color-text-muted);">{{ pub.venue }}</div>
+              </div>
+              <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 9px; white-space: nowrap;">
+                <span style="font-family: var(--font-mono); font-size: 13px; color: var(--color-text-secondary);">{{ pub.year }}</span>
+                <sc-if value="{{ pub.series }}" hint-placeholder-val=""><span style="font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-muted); border: 1px solid var(--color-border); border-radius: var(--radius-pill); padding: 3px 9px;">{{ pub.series }}</span></sc-if>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="cc-section" style="border-top: 1px solid var(--color-border); background: var(--color-surface-inverse); color: var(--color-text-inverse);">
+      <div style="max-width: var(--container); margin: 0 auto; padding: 96px 32px;">
+        <div style="font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray-400);">04 — Contact</div>
+        <h2 style="margin: 24px 0 0; font-family: var(--font-display); font-weight: 800; font-size: clamp(40px, 6vw, 80px); line-height: 0.96; letter-spacing: var(--tracking-display); text-transform: uppercase; color: var(--color-text-inverse);">Let's build something<br>that runs faster.</h2>
+        <div style="height: 12px; width: 200px; background: var(--color-text-inverse); margin: 32px 0 0;"></div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; margin-top: 52px; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.14);">
+          <a href="{{ links.email }}" style="display: block; padding: 24px; background: var(--color-surface-inverse); text-decoration: none;" style-hover="background: rgba(255,255,255,0.06);">
+            <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray-400);">Email</div>
+            <div style="margin-top: 10px; font-size: var(--text-md); color: var(--color-text-inverse); word-break: break-all;">brucechen057@gmail.com</div>
+          </a>
+          <a href="{{ links.scholar }}" target="_blank" rel="noopener" style="display: block; padding: 24px; background: var(--color-surface-inverse); text-decoration: none;" style-hover="background: rgba(255,255,255,0.06);">
+            <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray-400);">Google Scholar →</div>
+            <div style="margin-top: 10px; font-size: var(--text-md); color: var(--color-text-inverse);">Publications &amp; citations</div>
+          </a>
+          <a href="{{ links.linkedin }}" target="_blank" rel="noopener" style="display: block; padding: 24px; background: var(--color-surface-inverse); text-decoration: none;" style-hover="background: rgba(255,255,255,0.06);">
+            <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray-400);">LinkedIn →</div>
+            <div style="margin-top: 10px; font-size: var(--text-md); color: var(--color-text-inverse);">chen-chun-chen</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer style="border-top: 1px solid var(--color-border); padding: 36px 32px;">
+      <div style="max-width: var(--container); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <span style="display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border: 1.5px solid var(--color-text); font-family: var(--font-mono); font-weight: 700; font-size: 12px; color: var(--color-text);">CC</span>
+          <span style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-muted);">Chen-Chun Chen · The Ohio State University</span>
+        </div>
+        <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-faint);">© 2026 · Built with the CC design system</span>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Print-only CV header -->
+  <div class="print-only" style="padding: 0 0 16px; border-bottom: 2px solid #000; margin-bottom: 8px;">
+    <div style="font-family: var(--font-display); font-weight: 800; font-size: 34px; letter-spacing: -0.02em; text-transform: uppercase;">Chen-Chun Chen</div>
+    <div style="margin-top: 6px; font-size: 14px; color: #333;">PhD Candidate · Computer Science &amp; Engineering · The Ohio State University</div>
+    <div style="margin-top: 4px; font-family: var(--font-mono); font-size: 11px; color: #333;">brucechen057@gmail.com · +1 (614) 822 9763 · linkedin.com/in/chen-chun-chen</div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;defaultTheme&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;Light&quot;, &quot;Dark&quot;], &quot;default&quot;: &quot;Light&quot;, &quot;tsType&quot;: &quot;'Light'|'Dark'&quot; }
+}">
+class Component extends DCLogic {
+  state = { theme: 'light', pubGroups: [], pubTab: 'paper', loading: true };
+
+  componentDidMount() {
+    let theme = (this.props.defaultTheme === 'Dark') ? 'dark' : 'light';
+    try {
+      const st = localStorage.getItem('cc-theme'); if (st) theme = st;
+    } catch (e) {}
+    document.documentElement.setAttribute('data-theme', theme);
+    this.setState({ theme });
+    this.loadBib();
+  }
+
+  toggleTheme = () => {
+    const theme = this.state.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+    try { localStorage.setItem('cc-theme', theme); } catch (e) {}
+    this.setState({ theme });
+  };
+
+  printCV = () => { window.print(); };
+
+  // ---------- BibTeX parsing ----------
+  clean(s) {
+    if (!s) return '';
+    return s.replace(/\\&/g, '&').replace(/\\\$/g, '$')
+      .replace(/\\([%#_])/g, '$1')
+      .replace(/[{}]/g, '')
+      .replace(/\\[a-zA-Z]+\s?/g, '')
+      .replace(/~/g, ' ')
+      .replace(/\s+/g, ' ').trim();
+  }
+
+  fmtAuthor(raw) {
+    raw = raw.replace(/[{}]/g, '').trim();
+    let family, given;
+    if (raw.includes(',')) {
+      const p = raw.split(',');
+      family = p[0].trim();
+      given = p.slice(1).join(' ').trim();
+    } else {
+      const p = raw.split(/\s+/);
+      family = p.pop();
+      given = p.join(' ');
+    }
+    const initials = given.split(/\s+/).filter(Boolean).map(tok =>
+      tok.split('-').map(s => s ? s[0].toUpperCase() + '.' : '').join('-')
+    ).join(' ');
+    const name = (initials ? initials + ' ' : '') + family;
+    const isMe = family === 'Chen' && /^chen-?chun/i.test(given.replace(/[\s.]/g, ''));
+    return { name, isMe };
+  }
+
+  parseBib(text) {
+    const out = [];
+    const n = text.length;
+    let i = 0;
+    while (i < n) {
+      const at = text.indexOf('@', i);
+      if (at === -1) break;
+      let j = at + 1;
+      let type = '';
+      while (j < n && /[a-zA-Z]/.test(text[j])) { type += text[j]; j++; }
+      while (j < n && text[j] !== '{') j++;
+      if (j >= n) break;
+      let depth = 0, k = j;
+      for (; k < n; k++) {
+        if (text[k] === '{') depth++;
+        else if (text[k] === '}') { depth--; if (depth === 0) { k++; break; } }
+      }
+      const body = text.slice(j + 1, k - 1);
+      out.push(this.parseEntry(body, type.toLowerCase()));
+      i = k;
+    }
+    return out;
+  }
+
+  parseEntry(body, type) {
+    const fc = body.indexOf(',');
+    const rest = fc === -1 ? '' : body.slice(fc + 1);
+    const fields = {};
+    let i = 0; const n = rest.length;
+    while (i < n) {
+      while (i < n && /[\s,]/.test(rest[i])) i++;
+      let name = '';
+      while (i < n && /[a-zA-Z0-9_-]/.test(rest[i])) { name += rest[i]; i++; }
+      if (!name) break;
+      while (i < n && rest[i] !== '=') i++;
+      i++;
+      while (i < n && /\s/.test(rest[i])) i++;
+      let val = '';
+      if (rest[i] === '{') {
+        let depth = 0;
+        for (; i < n; i++) {
+          if (rest[i] === '{') { depth++; if (depth === 1) continue; }
+          else if (rest[i] === '}') { depth--; if (depth === 0) { i++; break; } }
+          val += rest[i];
+        }
+      } else if (rest[i] === '"') {
+        i++;
+        while (i < n && rest[i] !== '"') { val += rest[i]; i++; }
+        i++;
+      } else {
+        while (i < n && rest[i] !== ',' && rest[i] !== '\n') { val += rest[i]; i++; }
+      }
+      fields[name.toLowerCase()] = val.trim();
+    }
+    return { type, fields };
+  }
+
+  formatEntry(e) {
+    const f = e.fields;
+    const authors = (f.author || '').split(/\s+and\s+/)
+      .map(s => s.trim().replace(/,\s*$/, '')).filter(Boolean)
+      .map(a => this.fmtAuthor(a));
+    let authBefore, authMe, authAfter;
+    const meIdx = authors.findIndex(a => a.isMe);
+    if (meIdx >= 0) {
+      const before = authors.slice(0, meIdx).map(a => a.name).join(', ');
+      const after = authors.slice(meIdx + 1).map(a => a.name).join(', ');
+      authBefore = before ? before + ', ' : '';
+      authMe = authors[meIdx].name;
+      authAfter = after ? ', ' + after : '';
+    } else {
+      authBefore = authors.map(a => a.name).join(', ');
+      authMe = ''; authAfter = '';
+    }
+    const venue = this.clean(f.journal || f.booktitle || f.series || '');
+    let series = this.clean(f.series || '');
+    if (series && (series === venue || venue.indexOf(series) !== -1)) series = '';
+    const yearNum = parseInt(f.year) || 0;
+    const month = parseInt(f.month) || 0;
+    return {
+      title: this.clean(f.title), authBefore, authMe, authAfter,
+      venue, series, year: String(yearNum || ''), yearNum, month
+    };
+  }
+
+  async loadBib() {
+    const files = [
+      [(window.__resources && window.__resources.journalBib) || 'uploads/Resume/journal.bib', 'Journals', 'journal'],
+      [(window.__resources && window.__resources.paperBib) || 'uploads/Resume/paper.bib', 'Papers', 'paper'],
+      [(window.__resources && window.__resources.posterBib) || 'uploads/Resume/poster.bib', 'Posters', 'poster']
+    ];
+    const groups = [];
+    for (const [path, label, key] of files) {
+      try {
+        const res = await fetch(path, { cache: 'no-store' });
+        const text = await res.text();
+        const items = this.parseBib(text).map(e => this.formatEntry(e));
+        items.sort((a, b) => (b.yearNum - a.yearNum) || (b.month - a.month));
+        items.forEach((it, idx) => { it.num = String(idx + 1).padStart(2, '0'); });
+        groups.push({ key, label, count: String(items.length).padStart(2, '0'), items, empty: items.length === 0 });
+      } catch (err) {
+        groups.push({ key, label, count: '00', items: [], empty: true });
+      }
+    }
+    this.setState({ pubGroups: groups, loading: false });
+  }
+
+  // ---------- CV data ----------
+  education = [
+    { period: '2020 — Present', degree: 'PhD, Computer Science & Engineering', school: 'The Ohio State University', notes: [
+      'Advisor: Dhabaleswar K. Panda',
+      'Dissertation: Designing GPU-Aware Collective Communication for Heterogeneous Clusters with Diverse GPUs and Interconnects'
+    ] },
+    { period: '2016 — 2018', degree: 'MS, Computer Science', school: 'National Tsing Hua University', notes: [
+      'Advisor: Jerry Chou',
+      'Thesis: ALBERT — an Automatic Learning Based Execution and Resource Management System for Hadoop'
+    ] },
+    { period: '2012 — 2016', degree: 'BS, Computer Science', school: 'National Tsing Hua University', notes: [] }
+  ];
+
+  experience = [
+    { period: 'Aug 2020 — Present', role: 'Graduate Research Associate', org: 'The Ohio State University · Network-Based Computing Laboratory', location: 'Columbus, OH', bullets: [] },
+    { period: 'May 2022 — Aug 2022', role: 'Software Engineer Intern', org: 'X-ScaleSolutions, LLC', location: 'Columbus, OH', bullets: [] },
+    { period: 'Sep 2018 — Jul 2019', role: 'Engineer', org: 'Taiwan Semiconductor Manufacturing Company (TSMC)', location: 'Hsinchu, Taiwan', bullets: [] },
+    { period: 'Jul 2017 — Aug 2017', role: 'Intern Engineer', org: 'Taiwan Semiconductor Manufacturing Company (TSMC)', location: 'Hsinchu, Taiwan', bullets: [] },
+    { period: '2016 — 2020', role: 'Graduate Teaching Associate', org: 'The Ohio State University · National Tsing Hua University', location: '', bullets: [
+      'OSU: Algorithm (AU 2020).',
+      'NTHU — Cloud Programming (SP 2017, SP 2018).',
+      'NTHU — Parallel Programming (AU 2016, AU 2017).',
+      'NTHU — Machine Learning (AU 2017).'
+    ] }
+  ];
+
+  projects = [
+    { tag: 'Current', title: 'GPU-Aware MPI', bullets: [
+      { lead: '', text: 'Extended MVAPICH to support GPU-aware communication.' },
+      { lead: 'IPC-based Alltoall Algorithm — ', text: 'designed hybrid Alltoall algorithms leveraging GPU zero-copy IPC, boosting heFFTe throughput by up to 28× on 128 GPUs compared to MVAPICH2-GDR.' },
+      { lead: 'Kernel-based Direct Allreduce Algorithm — ', text: 'achieved up to 23% lower latency than NCCL on large-scale systems and 40% faster performance than existing MPI libraries, resulting in 27% faster Amber simulations.' },
+      { lead: 'Intel GPU Support — ', text: 'developed GPU-aware MPI runtimes for point-to-point and collective operations, achieving 11× faster Allreduce on a single node, 42% improvement on 32 GPUs, and up to 20× higher Alltoallv throughput over MPICH.' },
+      { lead: 'Multi-rail-aware Allreduce Designs — ', text: 'delivered 2.8–2.9× speedup at 1 GB over Cray MPICH and Intel MPI by leveraging persistent GPU buffers, multi-leader communication, and pipelined designs across NVIDIA, AMD, and Intel GPUs.' },
+      { lead: 'Compression Framework for MPI Collectives — ', text: 'integrated casting-based compression into MPI collectives, reducing Allreduce latency by 42% over MVAPICH-Plus + ZFP and Alltoall latency by 59%.' },
+      { lead: 'MPI-xCCL — ', text: 'developed a portable MPI layer over vendor collective libraries (NCCL, RCCL, HCCL, MSCCL), enabling cross-accelerator portability with competitive performance without code changes.' }
+    ] },
+    { tag: 'Past', title: 'Hybrid Compression Optimization for Distributed Training', bullets: [
+      { lead: '', text: 'Designed a performance-driven hybrid compression framework to accelerate distributed TensorFlow training with Horovod.' }
+    ] },
+    { tag: 'Past', title: 'ALBERT — Automatic Learning-Based Execution & Resource Management for Hadoop', bullets: [
+      { lead: '', text: 'Integrated research results from the following 2 programs and extended them to a cloud platform using OpenStack Sahara.' },
+      { lead: '', text: 'Applied machine learning, particularly deep learning, to predict Hadoop job running times in cloud environments.' },
+      { lead: '', text: 'Designed an execution optimization mechanism that improved system throughput using a modified 2D bin-packing algorithm guided by time prediction results.' }
+    ] },
+    { tag: 'Past', title: 'Job Prediction on Big-data Platforms (with Institute for Information Industry, Taiwan)', bullets: [
+      { lead: '', text: 'Developed machine learning models to predict job running times on Hadoop and Spark platforms.' },
+      { lead: '', text: 'Integrated existing III modules to implement an automatic resource reallocation mechanism driven by prediction results.' }
+    ] },
+    { tag: 'Past', title: 'Job Prediction & Resource Management on Production Line (with TSMC, Taiwan)', bullets: [
+      { lead: '', text: 'Utilized deep learning techniques to forecast job execution times in real semiconductor production environments.' },
+      { lead: '', text: 'Designed optimization strategies that improved total system throughput by leveraging prediction results without introducing additional overhead.' }
+    ] },
+    { tag: 'Award', title: 'Student Cluster Competition (SCC) in HPC', bullets: [
+      { lead: '', text: 'Competed in SC15 (2nd place overall), TSCC (Champion), and ASC16 (First Class Award).' },
+      { lead: '', text: 'Tuned performance for HPC apps (WRF, LAMMPS) and ported neural networks to Intel Xeon Phi.' }
+    ] }
+  ];
+
+  links = {
+    scholar: 'https://scholar.google.com/citations?user=E1CrVroAAAAJ&hl=en',
+    linkedin: 'https://www.linkedin.com/in/chen-chun-chen',
+    email: 'mailto:brucechen057@gmail.com'
+  };
+
+  setTab = (k) => this.setState({ pubTab: k });
+
+  renderVals() {
+    const tab = this.state.pubTab;
+    const groups = this.state.pubGroups;
+    const pubTabs = groups.map(g => {
+      const on = g.key === tab;
+      return {
+        key: g.key, label: g.label, count: '[' + g.count + ']',
+        onClick: () => this.setTab(g.key),
+        bg: on ? 'var(--color-text)' : 'transparent',
+        fg: on ? 'var(--color-bg)' : 'var(--color-text)',
+        border: on ? 'var(--color-text)' : 'var(--color-border)'
+      };
+    });
+    const activePub = groups.find(g => g.key === tab) || { items: [], empty: true };
+    return {
+      themeLabel: this.state.theme === 'dark' ? 'Light' : 'Dark',
+      toggleTheme: this.toggleTheme,
+      printCV: this.printCV,
+      loading: this.state.loading,
+      pubTabs,
+      activePub,
+      education: this.education,
+      experience: this.experience.map(j => ({ ...j, hasBullets: j.bullets.length > 0 })),
+      projects: this.projects.map(p => ({ ...p, hasBullets: p.bullets.length > 0 })),
+      links: this.links,
+      cvPdf: (window.__resources && window.__resources.cvPdf) || 'assets/Chen-Chun-Chen-CV.pdf'
+    };
+  }
+}
+</script>
+</body>
+</html>

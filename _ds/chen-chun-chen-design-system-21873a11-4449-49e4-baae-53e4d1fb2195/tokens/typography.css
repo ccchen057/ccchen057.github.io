@@ -1,0 +1,59 @@
+/* ============================================================
+   Typography — Chen-Chun Chen Design System
+   Swiss-grotesque system. Three roles:
+     · display  — Hanken Grotesk, heavy (700–800), tight
+                  negative tracking; built for bold all-caps
+     · body     — Hanken Grotesk, regular, 17px base
+     · label    — JetBrains Mono, UPPERCASE, wide tracking
+                  (the technical "UI voice")
+   ============================================================ */
+
+:root {
+  /* ---- Families ---- */
+  --font-sans: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --font-display: var(--font-sans);
+  --font-body: var(--font-sans);
+  --font-label: var(--font-mono);
+
+  /* ---- Weights (Hanken Grotesk variable axis 300–900) ---- */
+  --weight-light:    300;
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+  --weight-black:    800;
+
+  /* ---- Type scale (px) ---- */
+  --text-xs:   13px;
+  --text-sm:   15px;
+  --text-base: 17px;
+  --text-md:   19px;
+  --text-lg:   21px;
+  --text-xl:   27px;
+  --text-2xl:  34px;
+  --text-3xl:  44px;
+  --text-4xl:  58px;
+  --text-5xl:  76px;
+  --text-6xl:  96px;
+
+  /* ---- Line heights ---- */
+  --leading-display: 0.98;  /* large headlines */
+  --leading-tight:   1.12;  /* sub-heads */
+  --leading-snug:    1.32;
+  --leading-normal:  1.55;  /* body copy */
+  --leading-relaxed: 1.65;
+
+  /* ---- Letter spacing ---- */
+  --tracking-display: -0.035em; /* big bold all-caps display */
+  --tracking-tight:   -0.015em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.04em;
+  --tracking-label:   0.18em;   /* uppercase mono labels / eyebrows */
+
+  /* ---- Composite roles (shorthand-friendly) ---- */
+  --label-transform: uppercase; /* @kind other */
+  --label-size: var(--text-xs);
+  --label-tracking: var(--tracking-label);
+  --label-color: var(--color-text-muted);
+}
